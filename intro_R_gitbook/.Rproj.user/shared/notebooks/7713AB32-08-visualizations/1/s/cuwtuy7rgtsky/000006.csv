@@ -1,0 +1,7 @@
+"0","ggplot(data = experiment, mapping = aes(x = birthweight, fill = location)) +"
+"0","  geom_histogram(binwidth = 0.25) +"
+"0","  scale_fill_manual(values = locations.palette) +"
+"0","  facet_grid(location~year) +"
+"0","  labs(x = ""weight (kg)"", y = ""births"") +"
+"0","  theme_bw() +"
+"0","  theme(legend.title = element_blank())"

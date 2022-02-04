@@ -1,0 +1,6 @@
+h1:data-frames Data frames
+h2:structure-of-a-data-frame Structure of a data frame
+h2:selecting-a-single-column-using-the-and-operators Selecting a single column using the $ and [[ operators
+h2:selecting-a-subset-of-the-data-frame-using-the-operator Selecting a subset of the data frame using the [ operator
+h3:subsetting-a-vector Subsetting a vector
+

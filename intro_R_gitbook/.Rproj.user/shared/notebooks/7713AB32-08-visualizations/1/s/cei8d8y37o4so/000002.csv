@@ -1,0 +1,9 @@
+"0","experiment %>%"
+"0","  ggplot(mapping = aes(x = weeks.gestation, y = birthweight, linetype = smoker)) +"
+"0","  geom_quantile(quantiles = c(0.25, 0.5, 0.75), color = ""black"") +"
+"0","  labs(x = ""gestational age at birth"", y = ""birth weight (kg)"", linetype = ""geriatric preganancy"") +"
+"0","  theme_bw()"
+"2","Smoothing formula not specified. Using: y ~ x
+"
+"2","Smoothing formula not specified. Using: y ~ x
+"

@@ -1,0 +1,5 @@
+"0","ggplot(data = experiment, mapping = aes(x = birthweight, fill = smoker)) +"
+"0","  geom_density(alpha = 0.5) +"
+"0","  scale_fill_manual(values = smoking.palette) +"
+"0","  labs(x = ""birth weight (kg)"", fill = ""Maternal smoking in pregnancy"") +"
+"0","  theme_bw()"

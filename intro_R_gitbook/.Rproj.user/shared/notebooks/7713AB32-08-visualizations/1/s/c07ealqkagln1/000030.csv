@@ -1,0 +1,15 @@
+"0","experiment %>%
+  group_by(year, smoker) %>%
+  summarise(mean.birthweight = mean(birthweight),
+            sd.birthweight = sd(birthweight)) %>%
+  ggplot(mapping = aes(x = as.factor(year), y = mean.birthweight, fill = smoker)) +
+  geom_col(position = position_dodge2(preserve = ""single"")) +
+  geom_errorbar(mapping = aes(ymin = mean.birthweight - sd.birthweight,
+                              ymax = mean.birthweight + sd.birthweight),
+                position = position_dodge2(preserve = ""single"")) +
+  scale_fill_manual(values = smoking.palette) +
+  labs(x = ""birth year"", y = ""birth weight (kg)"", fill = ""maternal smoking"") +
+  theme_bw()
+"
+"1","`summarise()` has grouped output by 'year'. You can override using the `.groups` argument.
+"
