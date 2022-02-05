@@ -259,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="visualizations.html#cb132-1" aria-hidden="true" tabindex="-1"></a>?ggplot</span></code></pre></div>
 <p>It is capable of taking a lot of arguments and options, but requires only two: an object (typically a data frame) containing the data, and a list of “aesthetic mappings” that tell R which values to use for the axes, colors, and other graphical elements of the plot.</p>
 <div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="visualizations.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> experiment, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> birthweight))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
+<p><img src="../docs/figures/blank-1.png" width="672" /></p>
 <p>Alone, this produces an empty plot. The <code>ggplot()</code> function by itself creates the blank canvas upon which the plot will be drawn. The plot elements are added to this canvas in layers called “geoms.”</p>
 </div>
 <div id="the-geom" class="section level2" number="8.2">
@@ -269,14 +269,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="visualizations.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> experiment, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> birthweight)) <span class="sc">+</span></span>
 <span id="cb134-2"><a href="visualizations.html#cb134-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
+<p><img src="../docs/figures/histogram-1.png" width="672" /></p>
 <p>Setting the “binwidth” parameter within the <code>geom_histogram()</code> call changes the appearance of the plot and eliminates the message.</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="visualizations.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> experiment, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> birthweight)) <span class="sc">+</span></span>
 <span id="cb136-2"><a href="visualizations.html#cb136-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
+<p><img src="../docs/figures/bindwidth-1.png" width="672" /></p>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="visualizations.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> experiment, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> birthweight)) <span class="sc">+</span></span>
 <span id="cb137-2"><a href="visualizations.html#cb137-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-99-2.png" width="672" /></p>
+<p><img src="../docs/figures/bindwidth-2.png" width="672" /></p>
 </div>
 <div id="adding-color-and-fill-to-geoms" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> Adding color (and fill) to geoms</h2>
@@ -284,7 +284,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="visualizations.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> experiment, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> birthweight, <span class="at">fill =</span> location)) <span class="sc">+</span></span>
 <span id="cb138-2"><a href="visualizations.html#cb138-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
 <span id="cb138-3"><a href="visualizations.html#cb138-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> locations.palette) </span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
+<p><img src="../docs/figures/fill-1.png" width="672" /></p>
 <p>Here the total height of the bar is equal to the number of births at each weight, and the fill denotes the hospital at which the birth occured.</p>
 </div>
 <div id="creating-faceted-plots" class="section level2" number="8.4">
@@ -294,7 +294,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb139-2"><a href="visualizations.html#cb139-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
 <span id="cb139-3"><a href="visualizations.html#cb139-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> locations.palette) <span class="sc">+</span></span>
 <span id="cb139-4"><a href="visualizations.html#cb139-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-101-1.png" width="672" /></p>
+<p><img src="../docs/figures/facet-1.png" width="672" /></p>
 </div>
 <div id="add-and-modify-labels" class="section level2" number="8.5">
 <h2><span class="header-section-number">8.5</span> Add and modify labels</h2>
@@ -316,7 +316,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb140-7"><a href="visualizations.html#cb140-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">&quot;fig. 1&quot;</span>,</span>
 <span id="cb140-8"><a href="visualizations.html#cb140-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Birth weights by year, color-coded by delivery location.&quot;</span>,</span>
 <span id="cb140-9"><a href="visualizations.html#cb140-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">alt =</span> <span class="st">&quot;Pair of histograms displaying the distribution of birth weights of infants born at General Hospital, Memorial Hospital, and Silver Hill Medical Center in 1967 and 1968.&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+<p><img src="../docs/figures/labs-1.png" width="672" /></p>
 </div>
 <div id="making-global-changes-to-the-plots-appearance-using-themes" class="section level2" number="8.6">
 <h2><span class="header-section-number">8.6</span> Making global changes to the plot’s appearance using themes</h2>
@@ -329,14 +329,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb141-5"><a href="visualizations.html#cb141-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;weight (kg)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;births&quot;</span>) <span class="sc">+</span></span>
 <span id="cb141-6"><a href="visualizations.html#cb141-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb141-7"><a href="visualizations.html#cb141-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+<p><img src="../docs/figures/theme-1.png" width="672" /></p>
 <p>An interesting alternative to <code>geom_histogram()</code> is <code>geom_density()</code>.</p>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="visualizations.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> experiment, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> birthweight, <span class="at">fill =</span> smoker)) <span class="sc">+</span></span>
 <span id="cb142-2"><a href="visualizations.html#cb142-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
 <span id="cb142-3"><a href="visualizations.html#cb142-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> smoking.palette) <span class="sc">+</span></span>
 <span id="cb142-4"><a href="visualizations.html#cb142-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;birth weight (kg)&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Maternal smoking in pregnancy&quot;</span>) <span class="sc">+</span></span>
 <span id="cb142-5"><a href="visualizations.html#cb142-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
+<p><img src="../docs/figures/density-1.png" width="672" /></p>
 <p>The alpha channel of a color determines its opacity. In this case, we have placed <code>alpha = 0.5</code> outside of the <code>aes()</code> function call, because the opacity is not being mapped to any characteristic of the data.</p>
 <p>The examples above use color in a discrete fashion. In the scatter plot below, the color of each point represents a birth weight (continuous variable).</p>
 <div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="visualizations.html#cb143-1" aria-hidden="true" tabindex="-1"></a>experiment <span class="sc">%&gt;%</span></span>
@@ -348,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb143-7"><a href="visualizations.html#cb143-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Maternal cigarettes / day&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Gestational age at birth (weeks)&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Birth weight (kg)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb143-8"><a href="visualizations.html#cb143-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis</span>(<span class="at">option =</span> <span class="st">&quot;inferno&quot;</span>, <span class="at">begin =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
 <span id="cb143-9"><a href="visualizations.html#cb143-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
+<p><img src="../docs/figures/point-1.png" width="672" /></p>
 <p>Notice that it is not necessary to specify a color palette; viridis has a built-in function for interacting with ggplot objects.</p>
 </div>
 <div id="change-the-labels-for-categorical-values" class="section level2" number="8.7">
@@ -359,7 +359,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb144-3"><a href="visualizations.html#cb144-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb144-4"><a href="visualizations.html#cb144-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> smoking.palette) <span class="sc">+</span></span>
 <span id="cb144-5"><a href="visualizations.html#cb144-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
+<p><img src="../docs/figures/box-1.png" width="672" /></p>
 <p>The bar chart above displays the values “TRUE” and “FALSE” on the x-axis. This is fine for an exploratory plot, but in a report or publication, it might be more informative to replace them with “smoker” and “non-smoker.” The <code>scale_x_discrete()</code> function allows us to do just that.</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="visualizations.html#cb145-1" aria-hidden="true" tabindex="-1"></a>experiment <span class="sc">%&gt;%</span></span>
 <span id="cb145-2"><a href="visualizations.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> smoker, <span class="at">y =</span> birthweight, <span class="at">fill =</span> smoker)) <span class="sc">+</span></span>
@@ -369,7 +369,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb145-6"><a href="visualizations.html#cb145-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
 <span id="cb145-7"><a href="visualizations.html#cb145-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;birth weight (kg)&quot;</span>, <span class="at">x =</span> <span class="st">&quot;maternal cigarette use in pregnancy&quot;</span>) <span class="sc">+</span></span>
 <span id="cb145-8"><a href="visualizations.html#cb145-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
+<p><img src="../docs/figures/scale_x_discrete-1.png" width="672" /></p>
 </div>
 <div id="change-the-direction-of-axes-to-improve-readability" class="section level2" number="8.8">
 <h2><span class="header-section-number">8.8</span> Change the direction of axes to improve readability</h2>
@@ -384,7 +384,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb146-8"><a href="visualizations.html#cb146-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb146-9"><a href="visualizations.html#cb146-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb146-10"><a href="visualizations.html#cb146-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
+<p><img src="../docs/figures/element_text-1.png" width="672" /></p>
 <p>Or even the direction of the axes themselves.</p>
 <div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="visualizations.html#cb147-1" aria-hidden="true" tabindex="-1"></a>experiment <span class="sc">%&gt;%</span></span>
 <span id="cb147-2"><a href="visualizations.html#cb147-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> smoker, <span class="at">y =</span> birthweight, <span class="at">fill =</span> smoker)) <span class="sc">+</span></span>
@@ -396,7 +396,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb147-8"><a href="visualizations.html#cb147-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
 <span id="cb147-9"><a href="visualizations.html#cb147-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb147-10"><a href="visualizations.html#cb147-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
+<p><img src="../docs/figures/coord_flip-1.png" width="672" /></p>
 </div>
 <div id="the-pivot_longer-function-revisited" class="section level2" number="8.9">
 <h2><span class="header-section-number">8.9</span> The pivot_longer() function revisited</h2>
@@ -413,7 +413,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb148-10"><a href="visualizations.html#cb148-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
 <span id="cb148-11"><a href="visualizations.html#cb148-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Maternal tobacco use in pregnancy&quot;</span>, <span class="at">y =</span> <span class="st">&quot;miRNA expression&quot;</span>) <span class="sc">+</span></span>
 <span id="cb148-12"><a href="visualizations.html#cb148-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
+<p><img src="../docs/figures/pivot_longer-1.png" width="672" /></p>
 <p>After pivoting the miRNA data into a single column called expression, that data is available for ggplot to map that onto an aesthetic property.</p>
 </div>
 <div id="use-shape-and-line-type-to-convey-meaning" class="section level2" number="8.10">
@@ -431,7 +431,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb149-10"><a href="visualizations.html#cb149-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Maternal cigarettes / day&quot;</span>, <span class="at">y =</span> <span class="st">&quot;miRNA expression&quot;</span>) <span class="sc">+</span></span>
 <span id="cb149-11"><a href="visualizations.html#cb149-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb149-12"><a href="visualizations.html#cb149-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
+<p><img src="../docs/figures/shape-1.png" width="672" /></p>
 <p>There are 25 shapes available for plotting. You can see them all <a href="http://www.sthda.com/english/wiki/ggplot2-point-shapes">here</a>.</p>
 <div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="visualizations.html#cb150-1" aria-hidden="true" tabindex="-1"></a>experiment <span class="sc">%&gt;%</span></span>
 <span id="cb150-2"><a href="visualizations.html#cb150-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> weeks.gestation, <span class="at">y =</span> birthweight, <span class="at">linetype =</span> smoker)) <span class="sc">+</span></span>
@@ -440,7 +440,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb150-5"><a href="visualizations.html#cb150-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>## Smoothing formula not specified. Using: y ~ x
 ## Smoothing formula not specified. Using: y ~ x</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-112-1.png" width="672" /></p>
+<p><img src="../docs/figures/linetype-1.png" width="672" /></p>
 </div>
 <div id="focus-in-on-one-portion-of-the-plot" class="section level2" number="8.11">
 <h2><span class="header-section-number">8.11</span> Focus in on one portion of the plot</h2>
@@ -453,7 +453,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb152-6"><a href="visualizations.html#cb152-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>## Smoothing formula not specified. Using: y ~ x
 ## Smoothing formula not specified. Using: y ~ x</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
+<p><img src="../docs/figures/coord_cartesian-1.png" width="672" /></p>
 </div>
 <div id="layer-multiple-geoms" class="section level2" number="8.12">
 <h2><span class="header-section-number">8.12</span> Layer multiple geoms</h2>
@@ -471,7 +471,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb154-11"><a href="visualizations.html#cb154-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb154-12"><a href="visualizations.html#cb154-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>))</span></code></pre></div>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-114-1.png" width="672" /></p>
+<p><img src="../docs/figures/smooth-1.png" width="672" /></p>
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="visualizations.html#cb156-1" aria-hidden="true" tabindex="-1"></a>experiment <span class="sc">%&gt;%</span></span>
 <span id="cb156-2"><a href="visualizations.html#cb156-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, smoker) <span class="sc">%&gt;%</span></span>
 <span id="cb156-3"><a href="visualizations.html#cb156-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean.birthweight =</span> <span class="fu">mean</span>(birthweight),</span>
@@ -485,7 +485,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb156-11"><a href="visualizations.html#cb156-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;birth year&quot;</span>, <span class="at">y =</span> <span class="st">&quot;birth weight (kg)&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;maternal smoking&quot;</span>) <span class="sc">+</span></span>
 <span id="cb156-12"><a href="visualizations.html#cb156-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;year&#39;. You can override using the `.groups` argument.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-114-2.png" width="672" /></p>
+<p><img src="../docs/figures/smooth-2.png" width="672" /></p>
 </div>
 <div id="ggplot2-cheat-sheet" class="section level2" number="8.13">
 <h2><span class="header-section-number">8.13</span> ggplot2 cheat sheet</h2>
