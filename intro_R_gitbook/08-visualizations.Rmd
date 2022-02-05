@@ -1,5 +1,11 @@
 # Visualizations
 
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  fig.path = "../docs"
+)
+```
+
 The ggplot2 library is an extremely popular visualization package that provides an interface for extremely fine control over graphics for plotting. It is used by a number of of other popular packages in their built-in plotting functions. It provides a "grammar of graphics" that is quite useful to know.
 
 **A note about accessibility:**
@@ -37,7 +43,7 @@ The basic function of the ggplot2 library is `ggplot()`.
 
 It is capable of taking a lot of arguments and options, but requires only two: an object (typically a data frame) containing the data, and a list of "aesthetic mappings" that tell R which values to use for the axes, colors, and other graphical elements of the plot.
 
-```{r}
+```{r, blank}
 ggplot(data = experiment, mapping = aes(x = birthweight))
 ```
 
@@ -49,14 +55,14 @@ There are over 30 geoms in the ggplot2 library, each of which accepts a particul
 
 The `geom_histogram()` function requires, at a minimum, that a value be provided for x.
 
-```{r}
+```{r, histogram}
 ggplot(data = experiment, mapping = aes(x = birthweight)) +
   geom_histogram()
 ```
 
 Setting the "binwidth" parameter within the `geom_histogram()` call changes the appearance of the plot and eliminates the message.
 
-```{r}
+```{r, bindwidth}
 ggplot(data = experiment, mapping = aes(x = birthweight)) +
   geom_histogram(binwidth = 1)
 ggplot(data = experiment, mapping = aes(x = birthweight)) +
@@ -67,7 +73,7 @@ ggplot(data = experiment, mapping = aes(x = birthweight)) +
 
 The color (for lines and points) and fill (for areas, like bars) of a geom can add another layer of information to the plot.
 
-```{r}
+```{r, fill}
 ggplot(data = experiment, mapping = aes(x = birthweight, fill = location)) +
   geom_histogram(binwidth = 0.25) +
   scale_fill_manual(values = locations.palette) 
@@ -79,7 +85,7 @@ Here the total height of the bar is equal to the number of births at each weight
 
 Sometimes, it may be more clear graphically to create multiple sub-plots or "facets" based on categorical values in the data. The `facet_wrap()` and `facet_grid()` functions allow the user to break the data down into multiple plots by one or two categorical variables, respectively.
 
-```{r}
+```{r, facet}
 ggplot(data = experiment, mapping = aes(x = birthweight, fill = location)) +
   geom_histogram(binwidth = 0.25) +
   scale_fill_manual(values = locations.palette) +
@@ -97,7 +103,7 @@ Often, the aesthetic names (column names) are uninformative, or unattractive. Th
 - **tag**: label that appears at the top left of the plot by default (e.g. 1A)
 - **alt**, **alt_insight**: alt text for the plot (used by screen readers)
 
-```{r}
+```{r, labs}
 ggplot(data = experiment, mapping = aes(x = birthweight, fill = location)) +
   geom_histogram(binwidth = 0.25) +
   scale_fill_manual(values = locations.palette) +
@@ -115,7 +121,7 @@ The "theme" of a ggplot object controls the graphical elements that are not mapp
 
 In addition, the `theme()` function offers access to these graphical elements independently. Using it, you can change the angle of the text on the x axis, the placement of the legend, and many other things. Here, we will use it to remove the legend title.
 
-```{r}
+```{r, theme}
 ggplot(data = experiment, mapping = aes(x = birthweight, fill = location)) +
   geom_histogram(binwidth = 0.25) +
   scale_fill_manual(values = locations.palette) +
@@ -126,7 +132,7 @@ ggplot(data = experiment, mapping = aes(x = birthweight, fill = location)) +
 ```
 
 An interesting alternative to `geom_histogram()` is `geom_density()`.
-```{r}
+```{r, density}
 ggplot(data = experiment, mapping = aes(x = birthweight, fill = smoker)) +
   geom_density(alpha = 0.5) +
   scale_fill_manual(values = smoking.palette) +
@@ -138,7 +144,7 @@ The alpha channel of a color determines its opacity. In this case, we have place
 
 The examples above use color in a discrete fashion. In the scatter plot below, the color of each point represents a birth weight (continuous variable).
 
-```{r}
+```{r, point}
 experiment %>%
   filter(smoker == TRUE) %>%
   ggplot(mapping = aes(x = maternal.cigarettes,
@@ -156,7 +162,7 @@ Notice that it is not necessary to specify a color palette; viridis has a built-
 
 All of the elements of the plot, not just the height of bars and position of points, convey information. The labels on a categorical axis should be meaningful.
 
-```{r}
+```{r, box}
 experiment %>%
   ggplot(mapping = aes(x = smoker, y = birthweight, fill = smoker)) +
   geom_boxplot() +
@@ -166,7 +172,7 @@ experiment %>%
 
 The bar chart above displays the values "TRUE" and "FALSE" on the x-axis. This is fine for an exploratory plot, but in a report or publication, it might be more informative to replace them with "smoker" and "non-smoker." The `scale_x_discrete()` function allows us to do just that.
 
-```{r}
+```{r, scale_x_discrete}
 experiment %>%
   ggplot(mapping = aes(x = smoker, y = birthweight, fill = smoker)) +
   geom_boxplot() +
@@ -181,7 +187,7 @@ experiment %>%
 
 If the category names are very long, it may be necessary to change the direction of the axis labels.
 
-```{r}
+```{r, element_text}
 experiment %>%
   ggplot(mapping = aes(x = smoker, y = birthweight, fill = smoker)) +
   geom_boxplot() +
@@ -196,7 +202,7 @@ experiment %>%
 
 Or even the direction of the axes themselves.
 
-```{r}
+```{r, coord_flip}
 experiment %>%
   ggplot(mapping = aes(x = smoker, y = birthweight, fill = smoker)) +
   geom_boxplot() +
@@ -213,7 +219,7 @@ experiment %>%
 
 In the previous section on Tidyverse, `pivot_longer()` was only briefly discussed. This is because the easiest way to explain *why* changing the shape of a data set to create fewer, longer columns is useful is to demonstrate.
 
-```{r}
+```{r, pivot_longer}
 experiment %>%
   pivot_longer(cols = c(22:25),
                names_to = "gene.id",
@@ -234,7 +240,7 @@ After pivoting the miRNA data into a single column called expression, that data 
 
 Color is not the only aesthetic available for mapping to the data. Shape and line type are also good candidates for displaying categorical (or discrete) values.
 
-```{r}
+```{r, shape}
 experiment %>%
   pivot_longer(cols = c(22:25),
                names_to = "gene.id",
@@ -251,7 +257,7 @@ experiment %>%
 
 There are 25 shapes available for plotting. You can see them all [here](http://www.sthda.com/english/wiki/ggplot2-point-shapes).
 
-```{r}
+```{r, linetype}
 experiment %>%
   ggplot(mapping = aes(x = weeks.gestation, y = birthweight, linetype = smoker)) +
   geom_quantile(quantiles = c(0.25, 0.5, 0.75), color = "black") +
@@ -263,7 +269,7 @@ experiment %>%
 
 We can zoom in to the the lower left hand corner of the plot using `coord_cartesian()`.
 
-```{r}
+```{r, coord_cartesian}
 experiment %>%
   ggplot(mapping = aes(x = weeks.gestation, y = birthweight, linetype = smoker)) +
   geom_quantile(quantiles = c(0.25, 0.5, 0.75), color = "black") +
@@ -276,7 +282,7 @@ experiment %>%
 
 It is not necessary to make a single geom convey all of the information a plot must communicate. Instead, ggplot2 offers users the ability to layer geoms together. As long as they use the same axes, geoms may share a plot.
 
-```{r}
+```{r, smooth}
 ggplot(experiment, mapping = aes(x = weeks.gestation,
                                  y = birthweight,
                                  color = smoker)) +
